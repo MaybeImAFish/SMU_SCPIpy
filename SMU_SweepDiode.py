@@ -9,12 +9,18 @@ print(instruments)
 # Follow your address
 smu = rm.open_resource(instruments[2])
 
-#Hard code all the parameters
+# USE Type switch to Host mode, else SMU cant export CSV files into Drive
+smu.write("SYST:COMM:USB:TYPE HOST")
+
+# Make SMU into Current mode
 smu.write("FUNC:MODE CURR")
+
+#Sweep Linear Mode
 # smu.write("SOURCE:SWEep:LINear")
 smu.write("SWE:SPAC LIN")
 smu.write("SWE:STA SINGLE")
 
+# Sweep Parameter, start ~ end, step size, no of points
 smu.write("SWE:STAR 0.001") 
 smu.write("SWE:STOP 0.05")
 # smu.write("SWE:STEP 0.001")
@@ -22,3 +28,6 @@ smu.write("SWE:POIN 100")
 smu.write("SOURce1:SWEep:TRIG:STArt:SOURCE IMMediate")
 smu.write("OUTPUT 1")
 smu.write("SOURce:SWEep:INITiate")
+
+# Export to USB [Insert your filename here], hint you can create a loop to roll the name with cycle time.
+smu.write("SWE:DATA:EXP [001filename]")
