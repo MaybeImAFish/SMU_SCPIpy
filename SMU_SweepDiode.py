@@ -30,6 +30,7 @@ smu.write("OUTPUT 1")
 smu.write("SOURce:SWEep:INITiate")
 
 #Setting on Graph
+smu.write("SWE:GRAP:CONF:CURV:NUMB 1")
 smu.write("SWE:GRAP:VOLT:SCAL LINear")
 smu.write("SWE:GRAP:CURR:SCAL LINear")
 smu.write("SWE:GRAP:VOLT:INVE 0")
