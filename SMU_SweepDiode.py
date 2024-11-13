@@ -39,3 +39,5 @@ smu.write("SWE:GRAP:CURR:INVE 0")
 print(smu.write("SWE:GRAP:VIEW:CURV:DATA? 10"))
 
 smu.write("SWE:DATA:EXP IT2806_sweep_data00005") # error thrown here
+
+# gago naman
