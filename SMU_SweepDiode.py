@@ -10,7 +10,7 @@ print(instruments)
 smu = rm.open_resource(instruments[2])
 
 # USE Type switch to Host mode, else SMU cant export CSV files into Drive
-smu.write("SYST:COMM:USB:TYPE HOST")
+# smu.write("SYST:COMM:USB:TYPE HOST")
 
 # Make SMU into Current mode
 smu.write("FUNC:MODE CURR")
@@ -30,11 +30,12 @@ smu.write("OUTPUT 1")
 smu.write("SOURce:SWEep:INITiate")
 
 #Setting on Graph
-# smu.write("SWE:GRAP:CONF:CURV:NUMB 1")
-# smu.write("SWE:GRAP:VOLT:SCAL LINear")
-# smu.write("SWE:GRAP:CURR:SCAL LINear")
-# smu.write("SWE:GRAP:VOLT:INVE 0")
-# smu.write("SWE:GRAP:CURR:INVE 0")
+smu.write("SWE:GRAP:CONF:CURV:NUMB 1")
+smu.write("SWE:GRAP:VOLT:SCAL LINear")
+smu.write("SWE:GRAP:CURR:SCAL LINear")
+smu.write("SWE:GRAP:VOLT:INVE 0")
+smu.write("SWE:GRAP:CURR:INVE 0")
 # Export to USB [Insert your filename here], hint you can create a loop to roll the name with cycle time.
-smu.write("SWE:GRAP:AUTO")
-smu.write("SWE:DATA:EXP [001filename]")
+print(smu.write("SWE:GRAP:VIEW:CURV:DATA? 10"))
+
+smu.write("SWE:DATA:EXP IT2806_sweep_data00005") # error thrown here
