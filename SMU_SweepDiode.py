@@ -40,5 +40,6 @@ print(smu.write("SWE:GRAP:VIEW:CURV:DATA? 10"))
 
 smu.write("SWE:DATA:EXP IT2806_sweep_data00005") # error thrown here
 
+#Mini Branch looks good, finger licking good.
 # gago naman
 # dota tayo
