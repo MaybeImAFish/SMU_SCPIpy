@@ -9,7 +9,7 @@ if resources:
         equipment = rm.open_resource(resource)
         # print("Equipment:" , equipment)
         # print("Connected VISA resources:" + resource + ". IDN:" + equipment.write("IDN"))
-        IDN = equipment.write("*IDN?")
+        IDN = equipment.query("*IDN?")
         print(f"Connected VISA resources: {resource} IDN: {IDN}")
         # equipment.close()
 else:
